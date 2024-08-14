@@ -24,6 +24,43 @@ const requestPromise = (url) => {
     });
 };
 
+// Latihan Request pakai Promise
+requestPromise('movie.com')
+	.then((response) => {
+		console.log('success', response);
+		requestPromise('movie.com')
+			.then((response) => {
+				console.log('success', response);
+				requestPromise('movie.com')
+					.then((response) => {
+						console.log('success', response);
+						requestPromise('movie.com')
+							.then((response) => {
+								console.log('success', response);
+								requestPromise('movie.com')
+									.then((response) => {
+										console.log('success', response);
+									})
+									.catch((error) => {
+										console.log('error', error);
+									});
+							})
+							.catch((error) => {
+								console.log('error', error);
+							});
+					})
+					.catch((error) => {
+						console.log('error', error);
+					});
+			})
+			.catch((error) => {
+				console.log('error', error);
+			});
+	})
+	.catch((error) => {
+		console.log('error', error);
+	});
+
 // Latihan Request pakai Callback function
 // requestCallback(
 // 	'movie.com',
