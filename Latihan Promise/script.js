@@ -24,24 +24,34 @@ const requestPromise = (url) => {
     });
 };
 
+// Mengelola Kondisi Error Dengan Async Await
+async function requestHandler() {
+    try {
+        let result = await requestPromise("movie.com");
+        console.log(result);
+    } catch (error) {
+        console.log("Pesan Error", error);
+    }
+}
+
 // Cara Benar Menggunakan Fungsi Promise
-requestPromise('movie.com')
-	.then((result) => {
-		console.log('page 1');
-		console.log(result);
-		return requestPromise('movie.com');
-	})
-	.then(() => {
-		console.log('page 2');
-		return requestPromise('movie.com');
-	})
-	.then(() => {
-		console.log('page 3');
-		return requestPromise('movie.com');
-	})
-	.catch((err) => {
-		console.log(err);
-	});
+// requestPromise('movie.com')
+// 	.then((result) => {
+// 		console.log('page 1');
+// 		console.log(result);
+// 		return requestPromise('movie.com');
+// 	})
+// 	.then(() => {
+// 		console.log('page 2');
+// 		return requestPromise('movie.com');
+// 	})
+// 	.then(() => {
+// 		console.log('page 3');
+// 		return requestPromise('movie.com');
+// 	})
+// 	.catch((err) => {
+// 		console.log(err);
+// 	});
 
 // Latihan Request pakai Promise
 // requestPromise('movie.com')
